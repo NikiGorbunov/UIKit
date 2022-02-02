@@ -25,19 +25,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        colorView.layer.cornerRadius = 15
+        
         //number label slider
         numberRedSlider.text = String(redSlider.value)
         numberGreenSlider.text = String(greenSlider.value)
         numberBlueSlider.text = String(blueSlider.value)
         
-    }
-    
-    func changeColor() {
-        colorView.backgroundColor = UIColor(
-            displayP3Red: CGFloat(redSlider.value),
-            green: CGFloat(greenSlider.value),
-            blue: CGFloat(blueSlider.value), alpha: 1
-        )
+       
+        
     }
 
     @IBAction func redColorTone() {
@@ -54,5 +50,20 @@ class ViewController: UIViewController {
         numberBlueSlider.text = String(blueSlider.value)
         changeColor()
     }
+    
+    private func changeColor() {
+        colorView.backgroundColor = UIColor(
+            displayP3Red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
+        )
+        
+        numberRedSlider.text = String(format: "%.2f", redSlider.value)
+        numberGreenSlider.text = String(format: "%.2f", greenSlider.value)
+        numberBlueSlider.text = String(format: "%.2f", blueSlider.value)
+    }
+    
 }
+
 
